@@ -26,7 +26,7 @@ def simulate(libraries, D):
 				if(len(l.books) > 0):
 					popped = l.books.pop()
 					l.scanned.append(popped)
-					RunningtotalScore += popped.score
+					Running.totalScore += popped.score
 
 		#Decrement the days left for the current library
 		Running.daysLeft -= 1
