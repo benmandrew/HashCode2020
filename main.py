@@ -3,13 +3,16 @@ from readfile import readfile
 from simulate import Running, simulate
 
 if __name__ == "__main__":
-    readfile("data/a_example.txt")
+    fileName = "c_incunabula.txt"
+    readfile("data/{}".format(fileName))
     sortLibraries()
-
     for lib in Data.libraries:
         lib.sortBooks()
+    print("Read/sort files")
 
     simulate(
-        Data.libraries, Data.nScanningDays)
+        Data.libraries,
+        Data.nScanningDays,
+        "out_{}.txt".format(fileName[0]))
     
     

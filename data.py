@@ -54,4 +54,5 @@ def sortLibraries():
 
 def removeBookFromAllLibraries(book):
     for lib in Data.libraries:
-        lib.books.remove(book)
+        if book in lib.books:
+            lib.books.remove(book)
