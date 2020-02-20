@@ -6,6 +6,7 @@ class Data:
     bookScores = []
     libraries = []
 
+
 class Book:
     def __init__(self, idf, score):
         self.idf = idf
@@ -19,6 +20,7 @@ class Book:
 
     def __repr__(self):
         return self.__str__()
+
 
 class Library:
     def __init__(self, nBooks, signupTime, nShipPerDay, idx):
