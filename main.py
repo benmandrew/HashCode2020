@@ -3,7 +3,7 @@ from readfile import readfile
 from simulate import Running, simulate
 
 if __name__ == "__main__":
-    readfile("data/a_example.txt")
+    readfile("data/c_incunabula.txt")
     sortLibraries()
 
     for lib in Data.libraries:
