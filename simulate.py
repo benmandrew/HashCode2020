@@ -43,14 +43,14 @@ def simulate(libraries, D):
 		Running.daysLeft -= 1
 
 	# adding data into output file
-	outputFile.write("{}".format(len(Running.processed)))  # add nº of libraries processed
+	outputFile.write("{}\n".format(len(Running.processed)))  # add nº of libraries processed
 	# add section for each library int the output file
 	for lib in libForOutput:
-		line1 = "{} {}".format(lib.idx, len(lib.scanned))
+		line1 = "{} {}\n".format(lib.idx, len(lib.scanned))
 		line2 = ""
 
 		for thisBook in lib.scanned:
 			line2 = line2 + "{} ".format(thisBook.idf)
 
 		outputFile.write(line1)
-		outputFile.write(line2)
+		outputFile.write(line2 + "\n")
