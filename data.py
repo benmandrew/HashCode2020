@@ -21,11 +21,13 @@ class Book:
         return self.__str__()
 
 class Library:
-    def __init__(self, nBooks, signupTime, nShipPerDay):
+    def __init__(self, nBooks, signupTime, nShipPerDay, idx):
         self.nBooks = nBooks
         self.signupTime = signupTime
         self.nShipPerDay = nShipPerDay
         self.books = []
+        self.scanned = []
+        self.idx = idx
 
     def score(self):
         alpha = 1
