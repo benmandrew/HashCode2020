@@ -9,7 +9,6 @@ class Running:
     totalScore = 0  # The total score
 
 
-
 def simulate(libraries, D, outFileName):
 	# ASSUMPTION: libraries is already sorted from best to worst
 	Running.librariesLeft = libraries

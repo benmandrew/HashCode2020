@@ -34,7 +34,7 @@ class Library:
     def score(self):
         alpha = 1
         beta = 0.5
-        gamma = 1
+        gamma = 2
         return (
             pow(self.nShipPerDay, alpha) *
             pow(self.sumOfBookScores(), beta)
