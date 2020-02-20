@@ -32,9 +32,9 @@ class Library:
         self.idx = idx
 
     def score(self):
-        alpha = 2
+        alpha = 1
         beta = 0.5
-        gamma = 3
+        gamma = 2
         return (
             pow(self.nShipPerDay, alpha) *
             pow(self.sumOfBookScores(), beta)
