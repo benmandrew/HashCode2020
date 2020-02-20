@@ -9,7 +9,7 @@ def readfile(name):
     Data.nLibraries = int(top[1])
     Data.nScanningDays = int(top[2])
     for e in lines[1].strip().split(" "):
-        Data.bookScores.append(e)
+        Data.bookScores.append(int(e))
 
     for l in lines[2::2]:
         lf = l.strip().split(" ")

@@ -27,3 +27,7 @@ class Library:
         for book in self.bookSet:
             total += Data.bookScores[book]
         return total
+
+def sortLibraries():
+    Data.libraries = sorted(Data.libraries, key=Library.score, reverse=True)
+
