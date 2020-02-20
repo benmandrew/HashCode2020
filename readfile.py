@@ -1,4 +1,4 @@
-from data import Data, Library
+from data import Data, Library, Book
 
 def readfile(name):
     lines = []
@@ -21,4 +21,5 @@ def readfile(name):
     for i, l in enumerate(lines[3::2]):
         lf = l.strip().split(" ")
         for e in lf:
-            Data.libraries[i].bookSet.add(int(e))
+            b = Book(int(e), Data.bookScores[int(e)])
+            Data.libraries[i].books.append(b)
