@@ -50,3 +50,6 @@ class Library:
 def sortLibraries():
     Data.libraries = sorted(Data.libraries, key=Library.score, reverse=True)
 
+def removeBookFromAllLibraries(book):
+    for lib in Data.libraries:
+        lib.books.remove(book)
