@@ -1,4 +1,5 @@
-from data import removeBookFromAllLibraries
+from data import sortLibraries, Library
+
 
 class Running:
     currentProcessing = None  # The current library being processed
@@ -11,17 +12,24 @@ class Running:
 
 def simulate(libraries, D, outFileName):
 	# ASSUMPTION: libraries is already sorted from best to worst
-	Running.librariesLeft = libraries
+
+	if len(libraries) > D:
+		Running.librariesLeft = libraries[:D]
+	else:
+		Running.librariesLeft = libraries
+
 	libForOutput = []  # list of LibrarySection objects -- used for building output
 	finishedProcessing = False
 
 	for d in range(D):
 		# Stuff for processing libraries
 		if Running.daysLeft <= 0 and not finishedProcessing:
-			print("{} libraries left. {}/{} days".format(len(libraries), d, D))
+			print("{} libraries left. {}/{} days".format(len(Running.librariesLeft), d, D))
 			# Add next library
 			if Running.currentProcessing is not None:
-		
+
+				if len(Running.processed) % 10 == 0:
+					Running.librariesLeft = sorted(Running.librariesLeft, key=Library.score, reverse=True)
 				nBooksFromLibrary = (D - d) * Running.currentProcessing.nShipPerDay
 				if nBooksFromLibrary <= len(Running.currentProcessing.books):
 					Running.currentProcessing.scanned = Running.currentProcessing.books[:nBooksFromLibrary]
@@ -32,6 +40,9 @@ def simulate(libraries, D, outFileName):
 			Running.numberProcessed += 1
 
 			if len(Running.librariesLeft) > 0:
+				if len(Running.processed) % 10 == 0:
+					Running.librariesLeft = sorted(Running.librariesLeft, key=Library.score, reverse=True)
+
 				Running.currentProcessing = Running.librariesLeft.pop(0)
 				Running.daysLeft = Running.currentProcessing.signupTime
 			else:

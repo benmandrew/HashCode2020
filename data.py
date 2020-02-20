@@ -11,6 +11,7 @@ class Book:
     def __init__(self, idf, score):
         self.idf = idf
         self.score = score
+        self.seen = False
 
     def score(self):
         return self.score
@@ -43,7 +44,8 @@ class Library:
     def sumOfBookScores(self):
         total = 0
         for book in self.books:
-            total += Data.bookScores[book.idf]
+            if not book.seen:
+                total += Data.bookScores[book.idf]
         return total
 
     def sortBooks(self):
