@@ -1,17 +1,4 @@
-
-class Data:
-    nBooks = 0
-    nLibraries = 0
-    nScanningDays = 0
-    bookScores = []
-    libraries = []
-
-class Library:
-    def __init__(self, nBooks, signupTime, nShipPerDay):
-        self.nBooks = nBooks
-        self.signupTime = signupTime
-        self.nShipPerDay = nShipPerDay
-        self.bookSet = set()
+from data import Data, Library
 
 def readfile(name):
     lines = []
