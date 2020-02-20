@@ -6,7 +6,10 @@ class Running:
 	numberProcessed = 0
 	totalScore = 0 #The total score
 
-def simulate(D):
+def simulate(libraries, D):
+
+	#ASSUMPTION: libraries is already sorted from best to worst
+	Running.librariesLeft = libraries
 
 	for d in range(D):
 		#Stuff for processing libraries
@@ -16,8 +19,6 @@ def simulate(D):
 			Running.numberProcessed += 1
 			Running.currentProcessing = Running.librariesLeft.pop(0)
 			Running.daysLeft = Running.currentProcessing.signupTime
-		#Decrement the days left for the current library
-		Running.daysLeft -= 1
 
 		#Stuff for processing books
 		for l in Running.processed:
@@ -26,5 +27,8 @@ def simulate(D):
 					popped = l.books.pop()
 					l.scanned.add(popped)
 					RunningtotalScore += popped.score
+
+		#Decrement the days left for the current library
+		Running.daysLeft -= 1
 
 
