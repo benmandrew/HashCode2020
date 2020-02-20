@@ -15,7 +15,7 @@ def simulate(libraries, D):
 		#Stuff for processing libraries
 		if(Running.daysLeft <= 0 and len(Running.librariesLeft) > 0):
 			#Add next library
-			Running.processed.add(Running.currentProcessing)
+			Running.processed.append(Running.currentProcessing)
 			Running.numberProcessed += 1
 			Running.currentProcessing = Running.librariesLeft.pop(0)
 			Running.daysLeft = Running.currentProcessing.signupTime
@@ -25,7 +25,7 @@ def simulate(libraries, D):
 			for i in range(l.nShipPerDay):
 				if(len(l.books) > 0):
 					popped = l.books.pop()
-					l.scanned.add(popped)
+					l.scanned.append(popped)
 					RunningtotalScore += popped.score
 
 		#Decrement the days left for the current library

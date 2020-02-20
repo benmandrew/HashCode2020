@@ -11,11 +11,11 @@ def readfile(name):
     for e in lines[1].strip().split(" "):
         Data.bookScores.append(int(e))
 
-    for l in lines[2::2]:
+    for i, l in enumerate(lines[2::2]):
         lf = l.strip().split(" ")
         if lf[0] == '':
             continue
-        lib = Library(int(lf[0]), int(lf[1]), int(lf[2]))
+        lib = Library(int(lf[0]), int(lf[1]), int(lf[2]), i)
         Data.libraries.append(lib)
     
     for i, l in enumerate(lines[3::2]):
